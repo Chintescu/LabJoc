@@ -1,0 +1,4 @@
+﻿  Application.cpp
+D:\Opengl\Explozie\src\Application.cpp(55,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+D:\Opengl\Explozie\src\Application.cpp(55,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  Explozie.vcxproj -> D:\Opengl\Explozie\Debug\Explozie.exe
