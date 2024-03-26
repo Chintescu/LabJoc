@@ -1,0 +1,60 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.container {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    outline: dashed 1px black;
+	flex: 4;
+	align: center;
+}
+
+p {
+    /* Center horizontally*/
+   
+	color: #F9F6EE;
+}
+h4 {
+    /* Center horizontally*/
+    text-align: center;
+	color: E2DFD2;
+}
+h2 {
+    /* Center horizontally*/
+    text-align: center;
+	color: E2DFD2;
+}
+article {
+    flex: 4;
+}
+
+aside {
+    flex: 1;
+    margin-left: 10px;
+  
+    overflow: hidden;
+}

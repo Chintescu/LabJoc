@@ -1,0 +1,125 @@
+
+
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Books</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/navbar.css') }}">
+        <!-- Swiper CSS -->
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/swiper-bundle.min.css') }}">
+
+        <!-- CSS -->
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          $(function() {
+            $("#visible").click(function() {
+            $('#invisible').toggleClass("show");
+          });
+        });
+        </script>
+            <style>
+              .hide{display:none;}
+              .show{display:block;}
+            </style>
+            <div class="topnav">
+                <a class="nav-link" href="/">Home </a>
+                <a class="nav-link" href="/books">Books</a>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/shoppingCart">ShoppingCart</a>
+                    <div class="search-container">
+                        <form  method="POST">
+                            {{form.csrf_token}}
+                            {{form.ids}}
+                             <input type="submit" value="Submit">
+                        </form>
+                    </div>
+            </div>
+    </head>
+    <body>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{url_for('static', filename='images/lb1.jpg')}}" alt="" class="card-img" />
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">All the Light We Cannot See</h2>
+                            <p class="description">A beautiful, stunningly ambitious novel about a blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II</p>
+                             <form id="buyForm1" method="post">
+                                <div class="msg">{{ msg }}</div>
+                                <input class="button" name="buy" type="button"
+                                       class="btn" value="Price: 90"
+                                       onclick="buyBook('All the Light We Cannot See', 90)">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{url_for('static', filename='images/lb2.jpg')}}" alt="" class="card-img" />
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">The Shadow of the Gods</h2>
+                            <p class="description">THE GREATEST SAGAS ARE WRITTEN IN BLOOD.A century has passed since the gods fought and drove themselves to extinction</p>
+                            <form id="buyForm2" method="post">
+                                <div class="msg">{{ msg }}</div>
+                                <input class="button" name="buy" type="button"
+                                       class="btn" value="Price: 40"
+                                       onclick="buyBook('The Shadow of the Gods', 40)">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{url_for('static', filename='images/lb3.jpg')}}" alt="" class="card-img" />
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Girl in Pieces</h2>
+                            <p class="description">Charlie Davis is in pieces. At seventeen, she’s already lost more than most people lose in a lifetime.</p>
+                            <form id="buyForm3" method="post">
+                                <div class="msg">{{ msg }}</div>
+                                <input class="button" name="buy" type="button"
+                                       class="btn" value="Price: 85"
+                                       onclick="buyBook('Girl in Pieces', 85)">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function buyBook(title, price) {
+            $.ajax({
+                type: 'POST',
+                url: '/buy_book',
+                data: JSON.stringify({ 'title': title, 'price': price }),
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log('Book bought successfully!');
+                }
+            });
+        }
+    </script>
+    </body>
+
+    <!-- Swiper JS -->
+
+    <script src="{{ url_for('static',filename='js/swiper-bundle.min.js') }}"></script>
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static',filename='js/slide.js') }}"></script>
+</html>

@@ -1,0 +1,61 @@
+
+<html>
+    <head>
+         <title>ShoppingCart</title>
+            <style>
+                * {
+                  font-family: arial, sans-serif;
+                  box-sizing: border-box;
+                  font-size : 20px;
+                  color : FBF4F0;
+                }
+                #demo { border-collapse: collapse; }
+                #demo td { padding: 10px; }
+			table, th, td {
+  border: 1px solid;
+}
+            </style>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/navbar.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/site.css') }}">
+            <div class="topnav">
+
+                <a class="nav-link" href="/">Home </a>
+
+
+                <a class="nav-link" href="/books">Books</a>
+
+                <a class="nav-link" href="/login">Login</a>
+
+            </div>
+    </head>
+    <body style=" background-image: url('/static/images/book.jpg')">
+        {% if elements %}
+            <table>
+                <tr>
+                    <th> Product </th>
+                    <th> Price </th>
+                </tr>
+                {% for element in elements %}
+                    <tr>
+                        <td>{{ element['title'] }}</td>
+                        <td>{{ element['price'] }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td>Total Price: </td>>
+                    <td>{{ totalPrice }}</td>
+                </tr>>
+            </table>
+            <!--
+            <form action="{{ url_for('shoppingCart') }}" method="post">
+                <input  id="buy" name="buy" type="submit" class="btn" value="Buy" >
+            </form>
+            -->
+            <form action="{{ url_for('shoppingCart') }}" method="post">
+                <input id="emptyCart" name="emptyCart" type="submit" class="btn" value="EmptyCart">
+            </form>
+        {% else %}
+        <p> Nu exista elemente in cos </p>
+        {% endif %}
+    </body>
+</html>

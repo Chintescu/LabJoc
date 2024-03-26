@@ -1,0 +1,43 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/navbar.css') }}">
+    <!-- Swiper CSS -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/swiper-bundle.min.css') }}">
+	
+    <!-- CSS -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function() {
+	$("#visible").click(function() {
+	    $('#invisible').toggleClass("show");
+	  });  
+	});
+    </script>
+	   <style>
+      .hide{display:none;}
+      .show{display:block;}
+    </style>
+		<div class="topnav">
+
+		 
+				<a class="nav-link" href="/">Home </a>
+		
+				<a class="nav-link" href="/articles">Articles</a>
+
+				
+		        <a class="nav-link" href="/books">Books</a>
+				
+				 <a class="nav-link" href="/login">Login</a>
+		   
+		  </div>
+</head>
+<body>
+	<H1>Thank you for your purchased<H1>
+</body>
+</html>

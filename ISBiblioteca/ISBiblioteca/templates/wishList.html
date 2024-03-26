@@ -1,0 +1,50 @@
+
+<html>
+	
+<head>
+ <title>Articles</title>
+    <style>
+    * {
+      font-family: arial, sans-serif;
+      box-sizing: border-box;
+	  font-size : 20px;
+	  color : FBF4F0;
+    }
+    #demo { border-collapse: collapse; }
+    #demo td { padding: 10px; }
+    </style>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/navbar.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/site.css') }}">
+		<div class="topnav">
+
+		<a class="nav-link" href="/">Home </a>
+		
+		<a class="nav-link" href="/articles">Articles</a>
+				
+		<a class="nav-link" href="/books">Books</a>
+				
+		<a class="nav-link" href="/login">Login</a>
+		
+				<a class="nav-link" href="/wishList">WishList</a>
+		
+		<a class="nav-link" href="/shopping">ShoppingCart</a>
+	</div>
+</head>
+  <body style=" background-image: url('/static/images/book.jpg')">
+<table >
+{% for element in elements %}
+  <tr>
+  <td>{{ element['Title'] }}</td>
+   <td>{{ element['Price'] }}</td>
+   <td>
+		<form action="{{ url_for('wishList') }}" method="post">
+   <input class="button"  id="buy" name="buy" type="submit" class="btn" value="{{ element['Price'] }}" ></td>
+  </form>
+  </tr>
+{% endfor %}
+</table>
+	<form action="{{ url_for('wishList') }}" method="post">
+	<input class="button"  id="buy" name="buy" type="submit" class="btn" value="Buy" >
+	</form>
+  </body>
+</html>
